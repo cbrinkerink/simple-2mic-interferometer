@@ -1,0 +1,4 @@
+set_io mic_data  61
+set_io mic_clk   62
+set_io serial_tx 8
+set_io clk       21

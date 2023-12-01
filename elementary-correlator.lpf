@@ -1,0 +1,20 @@
+LOCATE COMP "clk" SITE "A10" ;
+IOBUF PORT "clk" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "serial_split" SITE "A14" ;
+IOBUF PORT "serial_split" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "serial_tx" SITE "P3" ;
+IOBUF PORT "serial_tx" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "mic_data_1" SITE "A9" ;
+IOBUF PORT "mic_data_1" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "mic_clk_1" SITE "B10" ;
+IOBUF PORT "mic_clk_1" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "mic_data_2" SITE "E13" ;
+IOBUF PORT "mic_data_2" IO_TYPE=LVCMOS33 ;
+
+LOCATE COMP "mic_clk_2" SITE "D13" ;
+IOBUF PORT "mic_clk_2" IO_TYPE=LVCMOS33 ;
