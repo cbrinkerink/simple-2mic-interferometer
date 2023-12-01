@@ -14,9 +14,9 @@ See the photos in the subfolder of this repository for how everything fits toget
 
 There are only 2 files that are important for the working 2-element interferometer:
 
-- The working FPGA code for 2 microphones is >> 2mics-output.bin <<. This FPGA code simply outputs the sample streams from both microphones over the serial connection. This code can be flashed onto the ICEstick using the command: >> iceprog 2mics-output.bin <<. Be sure to have the open-source toolchain installed: it includes yosys, icestorm, arachne-pnr and nextpnr. See for instance https://eecs.blog/lattice-ice40-fpga-icestorm-tutorial/ , although there are many tutorials online. Also be sure to check the USB driver setup bit directly below in these notes.
+- The working FPGA code for 2 microphones is <code>2mics-output.bin</code>. This FPGA code simply outputs the sample streams from both microphones over the serial connection. This code can be flashed onto the ICEstick using the command: <code>iceprog 2mics-output.bin</code>. Be sure to have the open-source toolchain installed: it includes yosys, icestorm, arachne-pnr and nextpnr. See for instance https://eecs.blog/lattice-ice40-fpga-icestorm-tutorial/ , although there are many tutorials online. Also be sure to check the USB driver setup bit directly below in these notes.
 
-- Correlation for the working version is performed by the code running on the laptop, in the script >> simpleworkingqtplot.py <<. This can simply be run from the command line using >> python3 simpleworkingqtplot.py <<, or from within an ipython session.
+- Correlation for the working version is performed by the code running on the laptop, in the script <code>simpleworkingqtplot.py</code>. This can simply be run from the command line using <code>python3 simpleworkingqtplot.py</code>, or from within an ipython session.
 
 - All other files are experimental versions, support files, intermediate products or tests, and are not critical to running the system. They are included to provide some extra inroads into experimentation for the enthusiastic user.
 
@@ -25,21 +25,21 @@ There are only 2 files that are important for the working 2-element interferomet
 - Reading the USB serial input as a virtual COM port only works when using the FTDI USB serial drivers.
   To use these, first unload the Apple FTDI driver:
 
-  sudo kextunload /System/Library/Extensions/AppleUSBFTDI.kext/
+  <code>sudo kextunload /System/Library/Extensions/AppleUSBFTDI.kext/</code>
 
   and then load the FTDI driver:
 
-  sudo kextload -b com.FTDI.driver.FTDIUSBSerialDriver
+  <code>sudo kextload -b com.FTDI.driver.FTDIUSBSerialDriver</code>
 
   The ICEstick can now send data over its serial connection using programs like Coolterm or screen.
 
 - Programming the ICEstick requires the other set of drivers to be active:
 
-  sudo kextunload /System/Library/Extensions/FTDIUSBSerialDriver.kext/
+  <code>sudo kextunload /System/Library/Extensions/FTDIUSBSerialDriver.kext/</code>
 
-  sudo kextload -b com.apple.driver.AppleUSBFTDI
+  <code>sudo kextload -b com.apple.driver.AppleUSBFTDI</code>
 
-  then running the command 'iceprog XXX.bin'.
+  then running the command <code>iceprog XXX.bin</code> where <code>XXX</code> is the name of the bitfile to be flashed to the FPGA.
 
   Note that sometimes, the system forgets either and then has no FTDI drivers active at all.
   Just reload the relevant driver to make it wake up again.
