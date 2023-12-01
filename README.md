@@ -1,5 +1,7 @@
 # simple-2mic-interferometer
 
+This project contins the software needed for a basic 2-element audio interferometry system. It uses two microphones connected to a small FPGA, which first filters the microphone data and then passes the two sample data streams to a connected computer over a serial connection. On the connected computer, the sample streams are read into a buffer using a simpe Python script and the two are correlated and plotted (using Qt) in close-to-real time. By making sound and varying your relative distance to the two microphones, you can watch the peak of the correlation function shift back and forth, providing a rudimentary way to measure the direction of arrival of the sound. You can also see how the shape of the correlation function changes with different frequency content of the sound signal (speaking, whistling, clapping, hissing, etc).
+
 ## Required components:
 
 - An ICEStick FPGA ( https://www.latticesemi.com/icestick )
